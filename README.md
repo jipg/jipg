@@ -34,6 +34,10 @@
   <a href="https://x.com/Jipgamez" target="_blank">
     <img src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white" alt="Twitter / X"/>
   </a>
+  &nbsp;
+  <a href="https://jipgamez.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Website-133B63?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website"/>
+  </a>
 </p>
 
 <p align="center">
