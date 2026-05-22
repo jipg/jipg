@@ -27,11 +27,11 @@
 <h3 align="center">🌐 Find me</h3>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_HANDLE/" target="_blank">
+  <a href="https://www.linkedin.com/in/jipgamez/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
   </a>
   &nbsp;
-  <a href="https://x.com/YOUR_TWITTER_HANDLE" target="_blank">
+  <a href="https://x.com/Jipgamez" target="_blank">
     <img src="https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white" alt="Twitter / X"/>
   </a>
 </p>
