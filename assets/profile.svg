@@ -75,20 +75,20 @@
       @keyframes pd { 0%,46%{opacity:0.5;} 52%,62%{opacity:1;} 68%,100%{opacity:0.5;} }
 
       /* ---- bug game (16s narrative loop) ---- */
-      .bug { transform: translate(110px,563px); opacity: 1; animation: bugRun 16s cubic-bezier(0.45,0,0.25,1) infinite; }
+      .bug { transform: translate(130px,563px); opacity: 1; animation: bugRun 16s cubic-bezier(0.45,0,0.25,1) infinite; }
       @keyframes bugRun {
-        0%   { transform: translate(110px,563px); opacity: 0; }
-        4%   { transform: translate(110px,563px); opacity: 1; }
-        16%  { transform: translate(300px,563px); opacity: 1; }
-        24%  { transform: translate(220px,563px); opacity: 1; }   /* reset pushes back */
-        38%  { transform: translate(420px,563px); opacity: 1; }   /* commit */
-        52%  { transform: translate(610px,563px); opacity: 1; }   /* push to prod */
-        60%  { transform: translate(610px,563px); opacity: 1; }
-        70%  { transform: translate(610px,563px); opacity: 1; }
-        82%  { transform: translate(800px,571px); opacity: 1; }   /* carried to cage */
-        92%  { transform: translate(800px,571px); opacity: 1; }
-        98%  { transform: translate(800px,571px); opacity: 0; }
-        100% { transform: translate(110px,563px); opacity: 0; }
+        0%   { transform: translate(130px,563px); opacity: 0; }
+        4%   { transform: translate(130px,563px); opacity: 1; }   /* spawn at dev */
+        16%  { transform: translate(320px,563px); opacity: 1; }   /* performance */
+        22%  { transform: translate(320px,563px); opacity: 1; }
+        30%  { transform: translate(250px,563px); opacity: 1; }   /* reset pushes back */
+        42%  { transform: translate(510px,563px); opacity: 1; }   /* commit+push to staging */
+        56%  { transform: translate(510px,563px); opacity: 1; }   /* held at staging */
+        58%  { transform: translate(510px,563px); opacity: 1; }   /* caught */
+        78%  { transform: translate(850px,528px); opacity: 1; }   /* carried off-line to cage */
+        92%  { transform: translate(850px,528px); opacity: 1; }   /* caged */
+        98%  { transform: translate(850px,528px); opacity: 0; }
+        100% { transform: translate(130px,563px); opacity: 0; }
       }
       .legs { animation: legs 0.3s steps(2) infinite; transform-origin: center; }
       @keyframes legs { 50% { transform: scaleX(-1); } }
@@ -97,29 +97,29 @@
       .cmd-reset  { animation: cr 16s ease-in-out infinite; }
       .cmd-commit { animation: cc 16s ease-in-out infinite; }
       .cmd-push   { animation: cp 16s ease-in-out infinite; }
-      @keyframes cr { 0%,16%{opacity:0; transform: translateY(4px);} 20%,24%{opacity:1; transform: translateY(0);} 28%,100%{opacity:0;} }
-      @keyframes cc { 0%,30%{opacity:0; transform: translateY(4px);} 34%,40%{opacity:1; transform: translateY(0);} 44%,100%{opacity:0;} }
-      @keyframes cp { 0%,44%{opacity:0; transform: translateY(4px);} 48%,54%{opacity:1; transform: translateY(0);} 58%,100%{opacity:0;} }
+      @keyframes cr { 0%,22%{opacity:0; transform: translateY(4px);} 25%,29%{opacity:1; transform: translateY(0);} 32%,100%{opacity:0;} }
+      @keyframes cc { 0%,32%{opacity:0; transform: translateY(4px);} 34%,40%{opacity:1; transform: translateY(0);} 43%,100%{opacity:0;} }
+      @keyframes cp { 0%,40%{opacity:0; transform: translateY(4px);} 42%,48%{opacity:1; transform: translateY(0);} 51%,100%{opacity:0;} }
 
       .net { opacity: 0; }
       .net-anim { animation: net 16s cubic-bezier(0.45,0,0.25,1) infinite; }
       @keyframes net {
-        0%,60%  { opacity: 0; transform: translate(0,-150px); }
-        64%     { opacity: 1; transform: translate(0,-6px); }
-        70%     { opacity: 1; transform: translate(0,0); }
-        82%     { opacity: 1; transform: translate(190px,28px); }
-        86%,100%{ opacity: 0; transform: translate(190px,28px); }
+        0%,50%  { opacity: 0; transform: translate(0,-150px); }   /* waiting above staging */
+        54%     { opacity: 1; transform: translate(0,-6px); }
+        58%     { opacity: 1; transform: translate(0,0); }        /* catch at staging */
+        78%     { opacity: 1; transform: translate(340px,-32px); }/* carry off-line to cage */
+        82%,100%{ opacity: 0; transform: translate(340px,-32px); }
       }
-      .door { transform-origin: 800px 575px; animation: door 16s ease-in-out infinite; }
-      @keyframes door { 0%,82%{transform: rotate(-78deg);} 87%,97%{transform: rotate(0deg);} 100%{transform: rotate(-78deg);} }
+      .door { transform-origin: 824px 530px; animation: door 16s ease-in-out infinite; }
+      @keyframes door { 0%,78%{transform: rotate(-78deg);} 82%,94%{transform: rotate(0deg);} 100%{transform: rotate(-78deg);} }
 
       .win { opacity: 0; animation: win 16s ease-out infinite; }
-      @keyframes win { 0%,87%{opacity:0; transform: translateY(4px);} 90%,96%{opacity:1; transform: translateY(0);} 99%,100%{opacity:0;} }
+      @keyframes win { 0%,82%{opacity:0; transform: translateY(4px);} 85%,96%{opacity:1; transform: translateY(0);} 99%,100%{opacity:0;} }
 
       .score-a { animation: sa 16s steps(1) infinite; }
-      @keyframes sa { 0%,88%{opacity:1;} 88.01%,100%{opacity:0;} }
+      @keyframes sa { 0%,84%{opacity:1;} 84.01%,100%{opacity:0;} }
       .score-b { opacity: 0; animation: sb 16s steps(1) infinite; }
-      @keyframes sb { 0%,88%{opacity:0;} 88.01%,100%{opacity:1;} }
+      @keyframes sb { 0%,84%{opacity:0;} 84.01%,100%{opacity:1;} }
 
       .term-c { animation: blink 1s steps(2) infinite; }
       .breathe { animation: br 3.2s ease-in-out infinite; }
@@ -179,7 +179,7 @@
   <!-- ╔═══════════════ SECTION 01 — CATCH THE BUG ═══════════════╗ -->
   <text x="48" y="362" class="eyebrow t3 mono">01 / PLAYGROUND</text>
   <text x="48" y="398" class="h-sec t1">Catch the Bug</text>
-  <text x="48" y="420" class="body t2">A metaphor I keep on my desk: a defect races toward prod — route it through the pipeline into the cage.</text>
+  <text x="48" y="420" class="body t2">A metaphor I keep on my desk: intercept the defect in staging and quarantine it — long before it reaches production.</text>
 
   <!-- scene card -->
   <rect x="48" y="440" width="864" height="260" rx="12" class="surface" stroke="#1f242c"/>
@@ -193,39 +193,39 @@
   <g class="score-b"><text x="892" y="462" class="cap green mono num" text-anchor="end">caught: 002</text></g>
 
   <!-- objective hint -->
-  <text x="72" y="514" class="cap t3 mono">// route the defect dev → prod, then trap it in the cage</text>
+  <text x="72" y="514" class="cap t3 mono">// catch the defect in staging — before it ever reaches prod</text>
 
-  <!-- pipeline track -->
-  <line x1="110" y1="575" x2="800" y2="575" stroke="#2b323b" stroke-width="2"/>
-  <line x1="110" y1="575" x2="800" y2="575" class="accent flow" stroke="#4493f8" stroke-width="2" opacity="0.5"/>
+  <!-- pipeline track: dev · performance · staging · prod -->
+  <line x1="130" y1="575" x2="700" y2="575" stroke="#2b323b" stroke-width="2"/>
+  <line x1="130" y1="575" x2="700" y2="575" class="accent flow" stroke="#4493f8" stroke-width="2" opacity="0.5"/>
   <g class="num">
-    <circle cx="110" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
-    <circle cx="300" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
-    <circle cx="610" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
-    <circle cx="800" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="130" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="320" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="510" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="700" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
   </g>
-  <text x="110" y="601" class="cap t2 mono" text-anchor="middle">dev</text>
-  <text x="300" y="601" class="cap t2 mono" text-anchor="middle">staging</text>
-  <text x="610" y="601" class="cap t2 mono" text-anchor="middle">prod</text>
-  <text x="800" y="601" class="cap t2 mono" text-anchor="middle">cage</text>
+  <text x="130" y="601" class="cap t2 mono" text-anchor="middle">dev</text>
+  <text x="320" y="601" class="cap t2 mono" text-anchor="middle">performance</text>
+  <text x="510" y="601" class="cap t2 mono" text-anchor="middle">staging</text>
+  <text x="700" y="601" class="cap t2 mono" text-anchor="middle">prod</text>
 
   <!-- command chips (appear in sequence just above the track) -->
-  <g class="cmd cmd-reset"  transform="translate(222,536)">
+  <g class="cmd cmd-reset"  transform="translate(285,536)">
     <rect x="-34" y="0" width="68" height="22" rx="6" class="surface" stroke="#f0584e"/>
     <text x="0" y="15" class="cap red mono" text-anchor="middle">reset</text>
   </g>
-  <g class="cmd cmd-commit" transform="translate(420,536)">
+  <g class="cmd cmd-commit" transform="translate(400,536)">
     <rect x="-36" y="0" width="72" height="22" rx="6" class="surface" stroke="#3fb950"/>
     <text x="0" y="15" class="cap green mono" text-anchor="middle">commit</text>
   </g>
-  <g class="cmd cmd-push"   transform="translate(610,536)">
+  <g class="cmd cmd-push"   transform="translate(505,536)">
     <rect x="-30" y="0" width="60" height="22" rx="6" class="surface" stroke="#b888e6"/>
     <text x="0" y="15" class="cap violet mono" text-anchor="middle">push</text>
   </g>
 
-  <!-- net -->
+  <!-- net (swoops onto staging, then carries the bug off-line to the cage) -->
   <g class="net net-anim">
-    <g transform="translate(610,540)">
+    <g transform="translate(510,540)">
       <line x1="0" y1="0" x2="0" y2="-40" stroke="#6e7681" stroke-width="2.5"/>
       <circle cx="0" cy="0" r="20" fill="none" stroke="#b888e6" stroke-width="2"/>
       <path d="M-14 -12 L14 12 M-14 0 L14 0 M-14 12 L14 -12 M0 -20 L0 20" stroke="#b888e6" stroke-width="0.8" opacity="0.55"/>
@@ -249,22 +249,24 @@
     <line x1="4"  y1="-10" x2="7"  y2="-15" stroke="#9da7b3" stroke-width="1.4"/>
   </g>
 
-  <!-- cage -->
-  <g transform="translate(800,553)">
-    <rect x="-26" y="0" width="52" height="44" rx="3" class="raised" stroke="#6e7681"/>
+  <!-- cage — kept SEPARATE from the pipeline (off-line, upper right) -->
+  <!-- back panel is transparent so a captured bug shows through the bars -->
+  <g transform="translate(850,508)">
+    <rect x="-26" y="0" width="52" height="44" rx="3" fill="none" stroke="#6e7681"/>
     <line x1="-16" y1="0" x2="-16" y2="44" stroke="#6e7681"/>
     <line x1="-6"  y1="0" x2="-6"  y2="44" stroke="#6e7681"/>
     <line x1="4"   y1="0" x2="4"   y2="44" stroke="#6e7681"/>
     <line x1="14"  y1="0" x2="14"  y2="44" stroke="#6e7681"/>
     <rect x="-30" y="-6" width="60" height="7" rx="2" fill="#2b323b"/>
   </g>
-  <g class="door"><rect x="774" y="553" width="3" height="44" fill="#6e7681"/></g>
+  <g class="door"><rect x="824" y="508" width="3" height="44" fill="#6e7681"/></g>
+  <text x="850" y="568" class="cap t3 mono" text-anchor="middle">cage</text>
 
   <!-- win toast -->
-  <g class="win"><g transform="translate(610,634)">
-    <rect x="-92" y="0" width="184" height="26" rx="13" class="surface" stroke="#3fb950"/>
-    <circle cx="-74" cy="13" r="4" class="green"/>
-    <text x="-60" y="17" class="cap green mono">bug quarantined — prod is safe</text>
+  <g class="win"><g transform="translate(415,650)">
+    <rect x="-110" y="0" width="220" height="26" rx="13" class="surface" stroke="#3fb950"/>
+    <circle cx="-92" cy="13" r="4" class="green"/>
+    <text x="-78" y="17" class="cap green mono">bug caught in staging — prod never saw it</text>
   </g></g>
 
   <!-- ╔═══════════════ SECTION 02 — HOW I BUILD ═══════════════╗ -->
