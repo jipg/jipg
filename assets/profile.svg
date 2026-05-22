@@ -168,10 +168,10 @@
   </g>
 
   <!-- animated availability line -->
-  <g transform="translate(620,266)">
-    <rect x="0" y="0" width="244" height="24" rx="12" class="raised" stroke="#2b323b"/>
+  <g transform="translate(582,266)">
+    <rect x="0" y="0" width="282" height="24" rx="12" class="raised" stroke="#2b323b"/>
     <circle cx="18" cy="12" r="4" class="green breathe"/>
-    <text x="30" y="16" class="cap t2 mono">open to reliability &amp; platform work</text>
+    <text x="32" y="16" class="cap t2 mono">open to reliability &amp; platform work</text>
   </g>
 
   <line class="line" x1="48" y1="320" x2="912" y2="320"/>
@@ -264,9 +264,9 @@
 
   <!-- win toast -->
   <g class="win"><g transform="translate(415,650)">
-    <rect x="-110" y="0" width="220" height="26" rx="13" class="surface" stroke="#3fb950"/>
-    <circle cx="-92" cy="13" r="4" class="green"/>
-    <text x="-78" y="17" class="cap green mono">bug caught in staging — prod never saw it</text>
+    <rect x="-164" y="0" width="328" height="26" rx="13" class="surface" stroke="#3fb950"/>
+    <circle cx="-146" cy="13" r="4" class="green"/>
+    <text x="-130" y="17" class="cap green mono">bug caught in staging — prod never saw it</text>
   </g></g>
 
   <!-- ╔═══════════════ SECTION 02 — HOW I BUILD ═══════════════╗ -->
