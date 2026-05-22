@@ -6,7 +6,7 @@
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━ GAME ━━━━━━━━━━━━━━━━━━━━━━━━ -->
 <h3 align="center">🎮 Catch the Bug</h3>
 <p align="center">
-  <em>Un bug viaja hacia producción. Atrápalo con los comandos correctos del pipeline antes de que sea tarde.</em>
+  <em>A bug is racing toward production. Catch it with the right pipeline commands before it's too late.</em>
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━ INFOGRAPHIC ━━━━━━━━━━━━━━━━━━━━━━━━ -->
 <h3 align="center">🧭 How I build: Risk-Driven Development × QA × Observability</h3>
 <p align="center">
-  <em>Una sola idea: priorizar por riesgo, no por cobertura uniforme. QA baja la probabilidad de fallo, Observability baja el tiempo de detección, y el análisis de riesgo decide dónde invertir.</em>
+  <em>One idea: prioritize by risk, not by uniform coverage. QA lowers the probability of failure, Observability lowers the time to detect it, and risk analysis decides where to invest.</em>
 </p>
 
 <p align="center">
