@@ -1,0 +1,406 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1500" role="img" aria-label="Jorge Posada — Reliability Engineering portfolio">
+  <defs>
+    <style>
+      /* ============================================================
+         DESIGN TOKENS (dark-first, border-based elevation, no glow)
+         palette: 1 accent + green/amber/violet/red semantics + grays
+         ============================================================ */
+      .bg      { fill: #0a0c10; }
+      .surface { fill: #0d1117; }
+      .raised  { fill: #11151b; }
+      .line    { stroke: #1f242c; stroke-width: 1; }
+      .line2   { stroke: #2b323b; stroke-width: 1; }
+
+      text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+      .mono { font-family: 'SF Mono', 'JetBrains Mono', 'Courier New', monospace; }
+
+      .t1 { fill: #e6edf3; }   /* primary text   */
+      .t2 { fill: #9da7b3; }   /* secondary text */
+      .t3 { fill: #6e7681; }   /* tertiary text  */
+
+      .accent { fill: #4493f8; }
+      .green  { fill: #3fb950; }
+      .amber  { fill: #d6a420; }
+      .violet { fill: #b888e6; }
+      .red    { fill: #f0584e; }
+
+      /* type scale (Major Third on 16) */
+      .name    { font-size: 46px; font-weight: 700; letter-spacing: -1.2px; }
+      .h-sec   { font-size: 26px; font-weight: 700; letter-spacing: -0.6px; }
+      .lead    { font-size: 16px; font-weight: 400; }
+      .body    { font-size: 13px; font-weight: 400; }
+      .cap     { font-size: 11px; font-weight: 500; }
+      .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2px; }
+      .card-t  { font-size: 13.5px; font-weight: 700; }
+      .num     { font-variant-numeric: tabular-nums; }
+
+      /* ---- motion vocabulary: function-first, ease-out, transform/opacity only ---- */
+      .blink { animation: blink 1.1s steps(2) infinite; }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      .drawline { stroke-dasharray: 220; stroke-dashoffset: 220; animation: draw 1.2s cubic-bezier(0,0,0.2,1) forwards; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+
+      .flow { stroke-dasharray: 6 6; animation: flow 1.6s linear infinite; }
+      @keyframes flow { to { stroke-dashoffset: -24; } }
+
+      .ring-flow { stroke-dasharray: 10 8; animation: flow2 2s linear infinite; }
+      @keyframes flow2 { to { stroke-dashoffset: -36; } }
+
+      /* node spotlight follows the cycle (12s, 6 stages) — opacity only */
+      .nspot { opacity: 0.18; }
+      .ns1 { animation: s1 12s ease-in-out infinite; }
+      .ns2 { animation: s2 12s ease-in-out infinite; }
+      .ns3 { animation: s3 12s ease-in-out infinite; }
+      .ns4 { animation: s4 12s ease-in-out infinite; }
+      .ns5 { animation: s5 12s ease-in-out infinite; }
+      .ns6 { animation: s6 12s ease-in-out infinite; }
+      @keyframes s1 { 0%,12%{opacity:1;} 18%,94%{opacity:0.18;} 100%{opacity:1;} }
+      @keyframes s2 { 0%,12%{opacity:0.18;} 18%,29%{opacity:1;} 35%,100%{opacity:0.18;} }
+      @keyframes s3 { 0%,29%{opacity:0.18;} 35%,46%{opacity:1;} 52%,100%{opacity:0.18;} }
+      @keyframes s4 { 0%,46%{opacity:0.18;} 52%,62%{opacity:1;} 68%,100%{opacity:0.18;} }
+      @keyframes s5 { 0%,62%{opacity:0.18;} 68%,79%{opacity:1;} 85%,100%{opacity:0.18;} }
+      @keyframes s6 { 0%,79%{opacity:0.18;} 85%,100%{opacity:1;} }
+
+      /* FMEA row highlight (synced with O and D emphasis) */
+      .qrow { opacity: 0.45; }
+      .qr1 { animation: s2 12s ease-in-out infinite; }
+      .qr2 { animation: s3 12s ease-in-out infinite; }
+      .qr3 { animation: s5 12s ease-in-out infinite; }
+      .qr4 { animation: s4 12s ease-in-out infinite; }
+
+      .pulseO { animation: po 12s ease-in-out infinite; }
+      @keyframes po { 0%,62%{opacity:0.5;} 68%,79%{opacity:1;} 85%,100%{opacity:0.5;} }
+      .pulseD { animation: pd 12s ease-in-out infinite; }
+      @keyframes pd { 0%,46%{opacity:0.5;} 52%,62%{opacity:1;} 68%,100%{opacity:0.5;} }
+
+      /* ---- bug game (16s narrative loop) ---- */
+      .bug { transform: translate(110px,563px); opacity: 1; animation: bugRun 16s cubic-bezier(0.45,0,0.25,1) infinite; }
+      @keyframes bugRun {
+        0%   { transform: translate(110px,563px); opacity: 0; }
+        4%   { transform: translate(110px,563px); opacity: 1; }
+        16%  { transform: translate(300px,563px); opacity: 1; }
+        24%  { transform: translate(220px,563px); opacity: 1; }   /* reset pushes back */
+        38%  { transform: translate(420px,563px); opacity: 1; }   /* commit */
+        52%  { transform: translate(610px,563px); opacity: 1; }   /* push to prod */
+        60%  { transform: translate(610px,563px); opacity: 1; }
+        70%  { transform: translate(610px,563px); opacity: 1; }
+        82%  { transform: translate(800px,571px); opacity: 1; }   /* carried to cage */
+        92%  { transform: translate(800px,571px); opacity: 1; }
+        98%  { transform: translate(800px,571px); opacity: 0; }
+        100% { transform: translate(110px,563px); opacity: 0; }
+      }
+      .legs { animation: legs 0.3s steps(2) infinite; transform-origin: center; }
+      @keyframes legs { 50% { transform: scaleX(-1); } }
+
+      .cmd { opacity: 0; }
+      .cmd-reset  { animation: cr 16s ease-in-out infinite; }
+      .cmd-commit { animation: cc 16s ease-in-out infinite; }
+      .cmd-push   { animation: cp 16s ease-in-out infinite; }
+      @keyframes cr { 0%,16%{opacity:0; transform: translateY(4px);} 20%,24%{opacity:1; transform: translateY(0);} 28%,100%{opacity:0;} }
+      @keyframes cc { 0%,30%{opacity:0; transform: translateY(4px);} 34%,40%{opacity:1; transform: translateY(0);} 44%,100%{opacity:0;} }
+      @keyframes cp { 0%,44%{opacity:0; transform: translateY(4px);} 48%,54%{opacity:1; transform: translateY(0);} 58%,100%{opacity:0;} }
+
+      .net { opacity: 0; }
+      .net-anim { animation: net 16s cubic-bezier(0.45,0,0.25,1) infinite; }
+      @keyframes net {
+        0%,60%  { opacity: 0; transform: translate(0,-150px); }
+        64%     { opacity: 1; transform: translate(0,-6px); }
+        70%     { opacity: 1; transform: translate(0,0); }
+        82%     { opacity: 1; transform: translate(190px,28px); }
+        86%,100%{ opacity: 0; transform: translate(190px,28px); }
+      }
+      .door { transform-origin: 800px 575px; animation: door 16s ease-in-out infinite; }
+      @keyframes door { 0%,82%{transform: rotate(-78deg);} 87%,97%{transform: rotate(0deg);} 100%{transform: rotate(-78deg);} }
+
+      .win { opacity: 0; animation: win 16s ease-out infinite; }
+      @keyframes win { 0%,87%{opacity:0; transform: translateY(4px);} 90%,96%{opacity:1; transform: translateY(0);} 99%,100%{opacity:0;} }
+
+      .score-a { animation: sa 16s steps(1) infinite; }
+      @keyframes sa { 0%,88%{opacity:1;} 88.01%,100%{opacity:0;} }
+      .score-b { opacity: 0; animation: sb 16s steps(1) infinite; }
+      @keyframes sb { 0%,88%{opacity:0;} 88.01%,100%{opacity:1;} }
+
+      .term-c { animation: blink 1s steps(2) infinite; }
+      .breathe { animation: br 3.2s ease-in-out infinite; }
+      @keyframes br { 50% { opacity: 0.45; } }
+    </style>
+  </defs>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗
+       ║  PAGE BACKGROUND                                           ║
+       ╚══════════════════════════════════════════════════════════╝ -->
+  <rect class="bg" width="960" height="1500"/>
+
+  <!-- ╔═══════════════ NAV BAR (wayfinding) ═══════════════╗ -->
+  <rect class="surface" width="960" height="56"/>
+  <line class="line" x1="0" y1="56" x2="960" y2="56"/>
+  <!-- brand mark -->
+  <rect x="48" y="20" width="16" height="16" rx="4" class="accent"/>
+  <rect x="52" y="24" width="8" height="8" rx="2" fill="#0a0c10"/>
+  <text x="76" y="33" class="t1" font-size="14" font-weight="700">jipgamez</text>
+  <!-- nav links -->
+  <text x="664" y="33" class="t1 mono" font-size="12.5" font-weight="600">work</text>
+  <line x1="664" y1="40" x2="700" y2="40" class="accent" stroke="#4493f8" stroke-width="2"/>
+  <text x="724" y="33" class="t2 mono" font-size="12.5">approach</text>
+  <text x="812" y="33" class="t2 mono" font-size="12.5">play</text>
+  <text x="864" y="33" class="t2 mono" font-size="12.5">contact</text>
+
+  <!-- ╔═══════════════ HERO ═══════════════╗ -->
+  <text x="48" y="120" class="eyebrow accent mono">RELIABILITY ENGINEERING</text>
+  <text x="46" y="178" class="name t1">Jorge Posada</text>
+  <text x="48" y="214" class="lead t2">Building software that fails safely — where DevOps, QA and Observability</text>
+  <text x="48" y="236" class="lead t2">operate as one risk-driven discipline.</text>
+
+  <!-- role chips -->
+  <g>
+    <rect x="48"  y="262" width="92"  height="28" rx="14" class="surface" stroke="#2b323b"/>
+    <circle cx="68" cy="276" r="4" class="green"/>
+    <text x="80" y="280" class="cap t1">DevOps</text>
+
+    <rect x="150" y="262" width="70"  height="28" rx="14" class="surface" stroke="#2b323b"/>
+    <circle cx="170" cy="276" r="4" class="violet"/>
+    <text x="182" y="280" class="cap t1">SRE</text>
+
+    <rect x="230" y="262" width="70"  height="28" rx="14" class="surface" stroke="#2b323b"/>
+    <circle cx="250" cy="276" r="4" class="amber"/>
+    <text x="262" y="280" class="cap t1">QA</text>
+  </g>
+
+  <!-- animated availability line -->
+  <g transform="translate(620,266)">
+    <rect x="0" y="0" width="244" height="24" rx="12" class="raised" stroke="#2b323b"/>
+    <circle cx="18" cy="12" r="4" class="green breathe"/>
+    <text x="30" y="16" class="cap t2 mono">open to reliability &amp; platform work</text>
+  </g>
+
+  <line class="line" x1="48" y1="320" x2="912" y2="320"/>
+
+  <!-- ╔═══════════════ SECTION 01 — CATCH THE BUG ═══════════════╗ -->
+  <text x="48" y="362" class="eyebrow t3 mono">01 / PLAYGROUND</text>
+  <text x="48" y="398" class="h-sec t1">Catch the Bug</text>
+  <text x="48" y="420" class="body t2">A metaphor I keep on my desk: a defect races toward prod — route it through the pipeline into the cage.</text>
+
+  <!-- scene card -->
+  <rect x="48" y="440" width="864" height="260" rx="12" class="surface" stroke="#1f242c"/>
+  <!-- window chrome -->
+  <line class="line" x1="48" y1="476" x2="912" y2="476"/>
+  <circle cx="68" cy="458" r="4.5" fill="#f0584e"/>
+  <circle cx="84" cy="458" r="4.5" fill="#d6a420"/>
+  <circle cx="100" cy="458" r="4.5" fill="#3fb950"/>
+  <text x="120" y="462" class="cap t3 mono">catch-the-bug — pipeline</text>
+  <g class="score-a"><text x="892" y="462" class="cap t2 mono num" text-anchor="end">caught: 001</text></g>
+  <g class="score-b"><text x="892" y="462" class="cap green mono num" text-anchor="end">caught: 002</text></g>
+
+  <!-- objective hint -->
+  <text x="72" y="514" class="cap t3 mono">// route the defect dev → prod, then trap it in the cage</text>
+
+  <!-- pipeline track -->
+  <line x1="110" y1="575" x2="800" y2="575" stroke="#2b323b" stroke-width="2"/>
+  <line x1="110" y1="575" x2="800" y2="575" class="accent flow" stroke="#4493f8" stroke-width="2" opacity="0.5"/>
+  <g class="num">
+    <circle cx="110" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="300" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="610" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+    <circle cx="800" cy="575" r="5" fill="#0a0c10" stroke="#4493f8" stroke-width="2"/>
+  </g>
+  <text x="110" y="601" class="cap t2 mono" text-anchor="middle">dev</text>
+  <text x="300" y="601" class="cap t2 mono" text-anchor="middle">staging</text>
+  <text x="610" y="601" class="cap t2 mono" text-anchor="middle">prod</text>
+  <text x="800" y="601" class="cap t2 mono" text-anchor="middle">cage</text>
+
+  <!-- command chips (appear in sequence just above the track) -->
+  <g class="cmd cmd-reset"  transform="translate(222,536)">
+    <rect x="-34" y="0" width="68" height="22" rx="6" class="surface" stroke="#f0584e"/>
+    <text x="0" y="15" class="cap red mono" text-anchor="middle">reset</text>
+  </g>
+  <g class="cmd cmd-commit" transform="translate(420,536)">
+    <rect x="-36" y="0" width="72" height="22" rx="6" class="surface" stroke="#3fb950"/>
+    <text x="0" y="15" class="cap green mono" text-anchor="middle">commit</text>
+  </g>
+  <g class="cmd cmd-push"   transform="translate(610,536)">
+    <rect x="-30" y="0" width="60" height="22" rx="6" class="surface" stroke="#b888e6"/>
+    <text x="0" y="15" class="cap violet mono" text-anchor="middle">push</text>
+  </g>
+
+  <!-- net -->
+  <g class="net net-anim">
+    <g transform="translate(610,540)">
+      <line x1="0" y1="0" x2="0" y2="-40" stroke="#6e7681" stroke-width="2.5"/>
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#b888e6" stroke-width="2"/>
+      <path d="M-14 -12 L14 12 M-14 0 L14 0 M-14 12 L14 -12 M0 -20 L0 20" stroke="#b888e6" stroke-width="0.8" opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- the bug (position driven by .bug animation) -->
+  <g class="bug">
+    <g class="legs">
+      <line x1="-11" y1="-3" x2="-19" y2="-9" stroke="#9da7b3" stroke-width="1.6"/>
+      <line x1="-11" y1="3"  x2="-19" y2="9"  stroke="#9da7b3" stroke-width="1.6"/>
+      <line x1="11"  y1="-3" x2="19"  y2="-9" stroke="#9da7b3" stroke-width="1.6"/>
+      <line x1="11"  y1="3"  x2="19"  y2="9"  stroke="#9da7b3" stroke-width="1.6"/>
+    </g>
+    <ellipse cx="0" cy="0" rx="13" ry="10" fill="#f0584e"/>
+    <ellipse cx="0" cy="0" rx="13" ry="10" fill="none" stroke="#7d1f1a" stroke-width="1.2"/>
+    <path d="M0 -10 L0 10" stroke="#7d1f1a" stroke-width="1.2"/>
+    <circle cx="-4" cy="-3.5" r="1.6" fill="#0a0c10"/>
+    <circle cx="4"  cy="-3.5" r="1.6" fill="#0a0c10"/>
+    <line x1="-4" y1="-10" x2="-7" y2="-15" stroke="#9da7b3" stroke-width="1.4"/>
+    <line x1="4"  y1="-10" x2="7"  y2="-15" stroke="#9da7b3" stroke-width="1.4"/>
+  </g>
+
+  <!-- cage -->
+  <g transform="translate(800,553)">
+    <rect x="-26" y="0" width="52" height="44" rx="3" class="raised" stroke="#6e7681"/>
+    <line x1="-16" y1="0" x2="-16" y2="44" stroke="#6e7681"/>
+    <line x1="-6"  y1="0" x2="-6"  y2="44" stroke="#6e7681"/>
+    <line x1="4"   y1="0" x2="4"   y2="44" stroke="#6e7681"/>
+    <line x1="14"  y1="0" x2="14"  y2="44" stroke="#6e7681"/>
+    <rect x="-30" y="-6" width="60" height="7" rx="2" fill="#2b323b"/>
+  </g>
+  <g class="door"><rect x="774" y="553" width="3" height="44" fill="#6e7681"/></g>
+
+  <!-- win toast -->
+  <g class="win"><g transform="translate(610,634)">
+    <rect x="-92" y="0" width="184" height="26" rx="13" class="surface" stroke="#3fb950"/>
+    <circle cx="-74" cy="13" r="4" class="green"/>
+    <text x="-60" y="17" class="cap green mono">bug quarantined — prod is safe</text>
+  </g></g>
+
+  <!-- ╔═══════════════ SECTION 02 — HOW I BUILD ═══════════════╗ -->
+  <text x="48" y="794" class="eyebrow t3 mono">02 / APPROACH</text>
+  <text x="48" y="830" class="h-sec t1">How I build reliable software</text>
+  <text x="48" y="852" class="body t2">Risk-Driven Development unifies the three disciplines: prioritize by risk, not by uniform coverage.</text>
+
+  <!-- ── LEFT: the cycle ── -->
+  <text x="48" y="892" class="cap t3 mono">THE CYCLE</text>
+  <!-- ring -->
+  <circle cx="245" cy="1045" r="118" fill="none" stroke="#1f242c" stroke-width="8"/>
+  <circle cx="245" cy="1045" r="118" fill="none" stroke="#4493f8" stroke-width="2" class="ring-flow" opacity="0.6"/>
+  <!-- traveling dot -->
+  <circle r="6" fill="#e6edf3">
+    <animateMotion dur="12s" repeatCount="indefinite"
+      path="M245,927 A118,118 0 0 1 245,1163 A118,118 0 0 1 245,927"/>
+  </circle>
+  <!-- center -->
+  <text x="245" y="1040" class="card-t t1" text-anchor="middle">RISK-DRIVEN</text>
+  <text x="245" y="1058" class="cap accent mono num" text-anchor="middle">RPN = S × O × D</text>
+
+  <!-- nodes (clockwise from top) r=118, cx245 cy1045 -->
+  <!-- Plan (top) -->
+  <g><circle class="nspot ns1" cx="245" cy="927" r="30" fill="#4493f8"/>
+     <circle cx="245" cy="927" r="30" fill="#0d1117" stroke="#4493f8" stroke-width="1.6"/>
+     <text x="245" y="924" class="cap accent" text-anchor="middle" font-weight="700">Plan</text>
+     <text x="245" y="936" class="t3" font-size="9" text-anchor="middle">feature</text></g>
+  <!-- Analyze risk (upper right) amber-> use accent for risk? keep amber=caution -->
+  <g><circle class="nspot ns2" cx="347" cy="986" r="30" fill="#d6a420"/>
+     <circle cx="347" cy="986" r="30" fill="#0d1117" stroke="#d6a420" stroke-width="1.6"/>
+     <text x="347" y="983" class="cap amber" text-anchor="middle" font-weight="700">Analyze</text>
+     <text x="347" y="995" class="t3" font-size="9" text-anchor="middle">risk · FMEA</text></g>
+  <!-- Design observability (lower right) violet -->
+  <g><circle class="nspot ns3" cx="347" cy="1104" r="30" fill="#b888e6"/>
+     <circle cx="347" cy="1104" r="30" fill="#0d1117" stroke="#b888e6" stroke-width="1.6"/>
+     <text x="347" y="1101" class="cap violet" text-anchor="middle" font-weight="700">Observe</text>
+     <text x="347" y="1113" class="t3" font-size="9" text-anchor="middle">by design</text></g>
+  <!-- Implement (bottom) green -->
+  <g><circle class="nspot ns4" cx="245" cy="1163" r="30" fill="#3fb950"/>
+     <circle cx="245" cy="1163" r="30" fill="#0d1117" stroke="#3fb950" stroke-width="1.6"/>
+     <text x="245" y="1167" class="cap green" text-anchor="middle" font-weight="700">Build</text></g>
+  <!-- Validate (lower left) amber -->
+  <g><circle class="nspot ns5" cx="143" cy="1104" r="30" fill="#d6a420"/>
+     <circle cx="143" cy="1104" r="30" fill="#0d1117" stroke="#d6a420" stroke-width="1.6"/>
+     <text x="143" y="1101" class="cap amber" text-anchor="middle" font-weight="700">Validate</text>
+     <text x="143" y="1113" class="t3" font-size="9" text-anchor="middle">QA gates</text></g>
+  <!-- Monitor (upper left) violet -->
+  <g><circle class="nspot ns6" cx="143" cy="986" r="30" fill="#b888e6"/>
+     <circle cx="143" cy="986" r="30" fill="#0d1117" stroke="#b888e6" stroke-width="1.6"/>
+     <text x="143" y="990" class="cap violet" text-anchor="middle" font-weight="700">Monitor</text></g>
+
+  <!-- ── RIGHT: FMEA questions ── -->
+  <text x="470" y="892" class="cap t3 mono">THE 4 RISK QUESTIONS · FMEA</text>
+  <g class="qrow qr1" transform="translate(470,902)">
+    <rect x="0" y="0" width="442" height="34" rx="8" class="surface" stroke="#1f242c"/>
+    <rect x="0" y="0" width="3" height="34" rx="1.5" class="red" fill="#f0584e"/>
+    <text x="18" y="15" class="body t1" font-weight="600">What can fail?</text>
+    <text x="18" y="28" class="cap t3">failure mode — the defect you are introducing</text>
+  </g>
+  <g class="qrow qr2" transform="translate(470,944)">
+    <rect x="0" y="0" width="442" height="34" rx="8" class="surface" stroke="#1f242c"/>
+    <rect x="0" y="0" width="3" height="34" rx="1.5" class="red" fill="#f0584e"/>
+    <text x="18" y="15" class="body t1" font-weight="600">How severe? <tspan class="mono cap red">S</tspan></text>
+    <text x="18" y="28" class="cap t3">business impact → flag / canary / rollback</text>
+  </g>
+  <g class="qrow qr3" transform="translate(470,986)">
+    <rect x="0" y="0" width="442" height="34" rx="8" class="surface" stroke="#1f242c"/>
+    <rect x="0" y="0" width="3" height="34" rx="1.5" class="amber" fill="#d6a420"/>
+    <text x="18" y="15" class="body t1" font-weight="600">How likely? <tspan class="mono cap amber">O</tspan></text>
+    <text x="18" y="28" class="cap t3">QA lowers occurrence — tests catch it pre-prod</text>
+  </g>
+  <g class="qrow qr4" transform="translate(470,1028)">
+    <rect x="0" y="0" width="442" height="34" rx="8" class="surface" stroke="#1f242c"/>
+    <rect x="0" y="0" width="3" height="34" rx="1.5" class="violet" fill="#b888e6"/>
+    <text x="18" y="15" class="body t1" font-weight="600">Detected in time? <tspan class="mono cap violet">D</tspan></text>
+    <text x="18" y="28" class="cap t3">observability lowers detection — know before users</text>
+  </g>
+
+  <!-- RPN equation card -->
+  <g transform="translate(470,1078)">
+    <rect x="0" y="0" width="442" height="92" rx="10" class="raised" stroke="#2b323b"/>
+    <text x="18" y="24" class="cap t3 mono">HOW THEY MULTIPLY</text>
+    <text x="18" y="58" class="mono num" font-size="22" font-weight="700">
+      <tspan class="t1">RPN = </tspan><tspan class="red">S</tspan><tspan class="t3"> × </tspan><tspan class="amber pulseO">O</tspan><tspan class="t3"> × </tspan><tspan class="violet pulseD">D</tspan>
+    </text>
+    <text x="18" y="78" class="cap t2">RDD spends QA &amp; observability budget where RPN is highest — instrument what hurts most.</text>
+  </g>
+
+  <!-- ── three-role synergy strip ── -->
+  <text x="48" y="1216" class="cap t3 mono">THE THREE FEED INTO EACH OTHER</text>
+  <g transform="translate(48,1228)">
+    <rect x="0" y="0" width="270" height="48" rx="10" class="surface" stroke="#1f242c"/>
+    <rect x="0" y="0" width="3" height="48" rx="1.5" class="green" fill="#3fb950"/>
+    <text x="18" y="21" class="card-t green">DevOps</text>
+    <text x="18" y="37" class="cap t3">reliable pipeline · safe change</text>
+
+    <line class="flow" x1="276" y1="24" x2="312" y2="24" stroke="#6e7681" stroke-width="1.6"/>
+    <polygon points="312,20 320,24 312,28" fill="#6e7681"/>
+
+    <rect x="296" y="0" width="270" height="48" rx="10" class="surface" stroke="#1f242c"/>
+    <rect x="296" y="0" width="3" height="48" rx="1.5" class="amber" fill="#d6a420"/>
+    <text x="314" y="21" class="card-t amber">QA</text>
+    <text x="314" y="37" class="cap t3">automated validation · ↓ occurrence</text>
+
+    <line class="flow" x1="572" y1="24" x2="608" y2="24" stroke="#6e7681" stroke-width="1.6"/>
+    <polygon points="608,20 616,24 608,28" fill="#6e7681"/>
+
+    <rect x="594" y="0" width="270" height="48" rx="10" class="surface" stroke="#1f242c"/>
+    <rect x="594" y="0" width="3" height="48" rx="1.5" class="violet" fill="#b888e6"/>
+    <text x="612" y="21" class="card-t violet">SRE</text>
+    <text x="612" y="37" class="cap t3">observability · ↓ detection time</text>
+  </g>
+  <!-- feedback loop -->
+  <path class="fb" d="M906 1276 C 930 1304, 30 1304, 50 1280" fill="none" stroke="#4493f8" stroke-width="1.4" stroke-dasharray="5 5"/>
+  <polygon points="45,1274 50,1284 57,1276" class="accent" fill="#4493f8"/>
+  <text x="480" y="1306" class="cap t3" text-anchor="middle" font-style="italic">feedback loop — postmortems refine the next cycle</text>
+
+  <!-- ╔═══════════════ SECTION 03 — CONTACT / FOOTER ═══════════════╗ -->
+  <line class="line" x1="48" y1="1340" x2="912" y2="1340"/>
+  <text x="48" y="1382" class="eyebrow t3 mono">03 / CONTACT</text>
+  <text x="48" y="1418" class="h-sec t1">Let's build something reliable.</text>
+
+  <!-- social chips -->
+  <g transform="translate(48,1440)">
+    <rect x="0" y="0" width="132" height="34" rx="8" class="surface" stroke="#2b323b"/>
+    <circle cx="20" cy="17" r="5" class="accent"/>
+    <text x="34" y="21" class="body t1" font-weight="600">LinkedIn</text>
+
+    <rect x="144" y="0" width="132" height="34" rx="8" class="surface" stroke="#2b323b"/>
+    <text x="164" y="22" class="t1" font-size="14" font-weight="800">X</text>
+    <text x="182" y="21" class="body t1" font-weight="600">@Jipgamez</text>
+
+    <rect x="288" y="0" width="160" height="34" rx="8" class="surface" stroke="#2b323b"/>
+    <circle cx="308" cy="17" r="5" class="green"/>
+    <text x="322" y="21" class="body t1" font-weight="600">jipgamez.com</text>
+  </g>
+
+  <text x="912" y="1462" class="cap t3 mono" text-anchor="end">crafted with SVG + CSS · no JS</text>
+</svg>
