@@ -83,11 +83,11 @@
         22%  { transform: translate(320px,563px); opacity: 1; }
         30%  { transform: translate(250px,563px); opacity: 1; }   /* reset pushes back */
         42%  { transform: translate(510px,563px); opacity: 1; }   /* commit+push to staging */
-        56%  { transform: translate(510px,563px); opacity: 1; }   /* held at staging */
-        58%  { transform: translate(510px,563px); opacity: 1; }   /* caught */
-        78%  { transform: translate(850px,528px); opacity: 1; }   /* carried off-line to cage */
-        92%  { transform: translate(850px,528px); opacity: 1; }   /* caged */
-        98%  { transform: translate(850px,528px); opacity: 0; }
+        50%  { transform: translate(510px,563px); opacity: 1; }   /* held at staging */
+        52%  { transform: translate(510px,563px); opacity: 1; }   /* caught */
+        66%  { transform: translate(850px,528px); opacity: 1; }   /* carried off-line to cage */
+        96%  { transform: translate(850px,528px); opacity: 1; }   /* caged (stays while PR + prod OK play) */
+        99%  { transform: translate(850px,528px); opacity: 0; }
         100% { transform: translate(130px,563px); opacity: 0; }
       }
       .legs { animation: legs 0.3s steps(2) infinite; transform-origin: center; }
@@ -106,17 +106,22 @@
       .net { opacity: 0; }
       .net-anim { animation: net 16s cubic-bezier(0.45,0,0.25,1) infinite; }
       @keyframes net {
-        0%,50%  { opacity: 0; transform: translate(0,-150px); }   /* waiting above staging */
-        54%     { opacity: 1; transform: translate(0,-6px); }
-        58%     { opacity: 1; transform: translate(0,0); }        /* catch at staging */
-        78%     { opacity: 1; transform: translate(340px,-32px); }/* carry off-line to cage */
-        82%,100%{ opacity: 0; transform: translate(340px,-32px); }
+        0%,44%  { opacity: 0; transform: translate(0,-150px); }   /* waiting above staging */
+        48%     { opacity: 1; transform: translate(0,-6px); }
+        52%     { opacity: 1; transform: translate(0,0); }        /* catch at staging */
+        66%     { opacity: 1; transform: translate(340px,-32px); }/* carry off-line to cage */
+        70%,100%{ opacity: 0; transform: translate(340px,-32px); }
       }
       .door { transform-origin: 824px 530px; animation: door 16s ease-in-out infinite; }
-      @keyframes door { 0%,78%{transform: rotate(-78deg);} 82%,94%{transform: rotate(0deg);} 100%{transform: rotate(-78deg);} }
+      @keyframes door { 0%,66%{transform: rotate(-78deg);} 70%,96%{transform: rotate(0deg);} 100%{transform: rotate(-78deg);} }
 
-      .win { opacity: 0; animation: win 16s ease-out infinite; }
-      @keyframes win { 0%,82%{opacity:0; transform: translateY(4px);} 85%,96%{opacity:1; transform: translateY(0);} 99%,100%{opacity:0;} }
+      /* end sequence: caught toast -> PR merged toast -> prod OK check (opacity only) */
+      .t-caught { opacity: 0; animation: tcaught 16s ease-out infinite; }
+      @keyframes tcaught { 0%,52%{opacity:0;} 55%,64%{opacity:1;} 67%,100%{opacity:0;} }
+      .t-pr { opacity: 0; animation: tpr 16s ease-out infinite; }
+      @keyframes tpr { 0%,69%{opacity:0;} 72%,80%{opacity:1;} 83%,100%{opacity:0;} }
+      .prod-ok { opacity: 0; animation: prodok 16s ease-out infinite; }
+      @keyframes prodok { 0%,83%{opacity:0;} 86%,98%{opacity:1;} 100%{opacity:0;} }
 
       .score-a { animation: sa 16s steps(1) infinite; }
       @keyframes sa { 0%,84%{opacity:1;} 84.01%,100%{opacity:0;} }
@@ -264,12 +269,24 @@
   <g class="door"><rect x="824" y="508" width="3" height="44" fill="#6e7681"/></g>
   <text x="850" y="568" class="cap t3 mono" text-anchor="middle">cage</text>
 
-  <!-- win toast -->
-  <g class="win"><g transform="translate(415,650)">
-    <rect x="-164" y="0" width="328" height="26" rx="13" class="surface" stroke="#3fb950"/>
-    <circle cx="-146" cy="13" r="4" class="green"/>
-    <text x="-130" y="17" class="cap green mono">bug caught in staging — prod never saw it</text>
-  </g></g>
+  <!-- prod OK check (production healthy after the fix ships) -->
+  <g class="prod-ok">
+    <circle cx="700" cy="575" r="11" fill="#0a0c10" stroke="#3fb950" stroke-width="2"/>
+    <circle cx="700" cy="575" r="11" fill="#3fb950" opacity="0.16"/>
+    <path d="M694.5 575.5 l3.5 3.5 l6.5 -7.5" fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- end-sequence toasts (centered, fade in/out in place) -->
+  <g class="t-caught" transform="translate(415,650)">
+    <rect x="-104" y="0" width="208" height="26" rx="13" class="surface" stroke="#3fb950"/>
+    <circle cx="-86" cy="13" r="4" class="green"/>
+    <text x="-72" y="17" class="cap green mono">bug caught in staging</text>
+  </g>
+  <g class="t-pr" transform="translate(415,650)">
+    <rect x="-98" y="0" width="196" height="26" rx="13" class="surface" stroke="#4493f8"/>
+    <circle cx="-80" cy="13" r="4" class="accent"/>
+    <text x="-66" y="17" class="cap accent mono">PR #42 — fix merged</text>
+  </g>
 
   <!-- ╔═══════════════ SECTION 02 — HOW I BUILD ═══════════════╗ -->
   <text x="48" y="794" class="eyebrow t3 mono">02 / APPROACH</text>
