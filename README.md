@@ -1,7 +1,7 @@
 <!-- Single animated SVG "site". Links inside an SVG aren't clickable on
      GitHub (it renders as an <img>), so the actionable links live below. -->
 <p align="center">
-  <img src="./assets/profile.svg" alt="Jorge Posada — Reliability Engineering. DevOps, SRE and QA as one risk-driven discipline." width="100%"/>
+  <img src="./assets/profile.svg" alt="Jorge Posada — the bug catcher. Reliability Engineering: DevOps, SRE and QA as one risk-driven discipline." width="100%"/>
 </p>
 
 <p align="center">

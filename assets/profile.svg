@@ -154,28 +154,29 @@
   <text x="864" y="33" class="t2 mono" font-size="12.5">contact</text>
 
   <!-- ╔═══════════════ HERO ═══════════════╗ -->
-  <text x="48" y="120" class="eyebrow accent mono">RELIABILITY ENGINEERING</text>
-  <text x="46" y="178" class="name t1">Jorge Posada</text>
-  <text x="48" y="214" class="lead t2">Building software that fails safely — where DevOps, QA and Observability</text>
-  <text x="48" y="236" class="lead t2">operate as one risk-driven discipline.</text>
+  <text x="48" y="116" class="eyebrow accent mono">RELIABILITY ENGINEERING</text>
+  <text x="46" y="170" class="name t1">Jorge Posada</text>
+  <text x="48" y="198" class="accent" font-size="18" font-weight="600" font-style="italic">“the bug catcher”</text>
+  <text x="48" y="228" class="lead t2">Building software that fails safely — where DevOps, QA and Observability</text>
+  <text x="48" y="248" class="lead t2">operate as one risk-driven discipline.</text>
 
   <!-- role chips -->
   <g>
-    <rect x="48"  y="262" width="92"  height="28" rx="14" class="surface" stroke="#2b323b"/>
-    <circle cx="68" cy="276" r="4" class="green"/>
-    <text x="80" y="280" class="cap t1">DevOps</text>
+    <rect x="48"  y="274" width="92"  height="28" rx="14" class="surface" stroke="#2b323b"/>
+    <circle cx="68" cy="288" r="4" class="green"/>
+    <text x="80" y="292" class="cap t1">DevOps</text>
 
-    <rect x="150" y="262" width="70"  height="28" rx="14" class="surface" stroke="#2b323b"/>
-    <circle cx="170" cy="276" r="4" class="violet"/>
-    <text x="182" y="280" class="cap t1">SRE</text>
+    <rect x="150" y="274" width="70"  height="28" rx="14" class="surface" stroke="#2b323b"/>
+    <circle cx="170" cy="288" r="4" class="violet"/>
+    <text x="182" y="292" class="cap t1">SRE</text>
 
-    <rect x="230" y="262" width="70"  height="28" rx="14" class="surface" stroke="#2b323b"/>
-    <circle cx="250" cy="276" r="4" class="amber"/>
-    <text x="262" y="280" class="cap t1">QA</text>
+    <rect x="230" y="274" width="70"  height="28" rx="14" class="surface" stroke="#2b323b"/>
+    <circle cx="250" cy="288" r="4" class="amber"/>
+    <text x="262" y="292" class="cap t1">QA</text>
   </g>
 
   <!-- animated availability line -->
-  <g transform="translate(582,266)">
+  <g transform="translate(582,278)">
     <rect x="0" y="0" width="282" height="24" rx="12" class="raised" stroke="#2b323b"/>
     <circle cx="18" cy="12" r="4" class="green breathe"/>
     <text x="32" y="16" class="cap t2 mono">open to reliability &amp; platform work</text>
