@@ -5,9 +5,13 @@
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/jipgamez/">LinkedIn</a>
-  &nbsp;·&nbsp;
-  <a href="https://x.com/Jipgamez">X / @Jipgamez</a>
-  &nbsp;·&nbsp;
-  <a href="https://jipgamez.com/">jipgamez.com</a>
+  <a href="https://www.linkedin.com/in/jipgamez/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://x.com/Jipgamez">
+    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X / @Jipgamez"/>
+  </a>
+  <a href="https://jipgamez.com/">
+    <img src="https://img.shields.io/badge/jipgamez.com-133B63?style=for-the-badge&logo=googlechrome&logoColor=white" alt="jipgamez.com"/>
+  </a>
 </p>
