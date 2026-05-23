@@ -165,12 +165,6 @@
   <rect x="48" y="20" width="16" height="16" rx="4" class="accent"/>
   <rect x="52" y="24" width="8" height="8" rx="2" fill="#0a0c10"/>
   <text x="76" y="33" class="t1" font-size="14" font-weight="700">jipgamez</text>
-  <!-- nav links -->
-  <text x="664" y="33" class="t1 mono" font-size="12.5" font-weight="600">work</text>
-  <line x1="664" y1="40" x2="700" y2="40" class="accent" stroke="#4493f8" stroke-width="2"/>
-  <text x="724" y="33" class="t2 mono" font-size="12.5">approach</text>
-  <text x="812" y="33" class="t2 mono" font-size="12.5">play</text>
-  <text x="864" y="33" class="t2 mono" font-size="12.5">contact</text>
 
   <!-- ╔═══════════════ HERO ═══════════════╗ -->
   <text x="48" y="116" class="eyebrow accent mono">RELIABILITY ENGINEERING</text>
@@ -442,6 +436,4 @@
     <circle cx="308" cy="17" r="5" class="green"/>
     <text x="322" y="21" class="body t1" font-weight="600">jipgamez.com</text>
   </g>
-
-  <text x="912" y="1462" class="cap t3 mono" text-anchor="end">crafted with SVG + CSS · no JS</text>
 </svg>
