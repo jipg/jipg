@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1500" role="img" aria-label="Jorge Posada — Reliability Engineering portfolio">
   <defs>
+    <!-- subtle glow used by the hero tagline -->
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <style>
       /* ============================================================
          DESIGN TOKENS (dark-first, border-based elevation, no glow)
@@ -26,6 +31,15 @@
 
       /* type scale (Major Third on 16) */
       .name    { font-size: 46px; font-weight: 700; letter-spacing: -1.2px; }
+      .tagline {
+        font-size: 15px;
+        font-weight: 600;
+        font-style: italic;
+        letter-spacing: 0.2px;
+        fill: #58a6ff;
+        filter: url(#glow);
+        animation: tagPulse 3.2s ease-in-out infinite;
+      }
       .h-sec   { font-size: 26px; font-weight: 700; letter-spacing: -0.6px; }
       .lead    { font-size: 16px; font-weight: 400; }
       .body    { font-size: 13px; font-weight: 400; }
@@ -46,6 +60,11 @@
 
       .ring-flow { stroke-dasharray: 10 8; animation: flow2 2s linear infinite; }
       @keyframes flow2 { to { stroke-dashoffset: -36; } }
+
+      @keyframes tagPulse {
+        0%, 100% { opacity: 0.92; }
+        50% { opacity: 0.62; }
+      }
 
       /* node spotlight follows the cycle (12s, 6 stages) — opacity only */
       .nspot { opacity: 0.18; }
@@ -156,7 +175,7 @@
   <!-- ╔═══════════════ HERO ═══════════════╗ -->
   <text x="48" y="116" class="eyebrow accent mono">RELIABILITY ENGINEERING</text>
   <text x="46" y="170" class="name t1">Jorge Posada</text>
-  <text x="48" y="198" class="accent" font-size="18" font-weight="600" font-style="italic">“the bug catcher”</text>
+  <text x="48" y="198" class="tagline">the bug catcher</text>
   <text x="48" y="228" class="lead t2">Building software that fails safely — where DevOps, QA and Observability</text>
   <text x="48" y="248" class="lead t2">operate as one risk-driven discipline.</text>
 
@@ -286,7 +305,7 @@
   <g class="t-pr" transform="translate(415,650)">
     <rect x="-98" y="0" width="196" height="26" rx="13" class="surface" stroke="#4493f8"/>
     <circle cx="-80" cy="13" r="4" class="accent"/>
-    <text x="-66" y="17" class="cap accent mono">PR #42 — fix merged</text>
+    <text x="-66" y="17" class="cap accent mono">PR #20 — fix merged</text>
   </g>
 
   <!-- ╔═══════════════ SECTION 02 — HOW I BUILD ═══════════════╗ -->
